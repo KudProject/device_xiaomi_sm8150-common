@@ -30,6 +30,11 @@ write_headers "andromeda cepheus crux nabu raphael vayu"
 # The standard common blobs
 write_makefiles "${MY_DIR}/proprietary-files.txt" true
 
+# Handle common NFC blobs
+echo -e "\nifneq (\$(filter nfc,\$(TARGET_HAS_ADDITIONAL_HARDWARE)),)" >>"${ANDROID_ROOT}/vendor/${VENDOR}/${DEVICE_COMMON}/${DEVICE_COMMON}-vendor.mk"
+write_makefiles "${MY_DIR}/proprietary-files-nfc.txt" true
+echo -e "endif" >>"${ANDROID_ROOT}/vendor/${VENDOR}/${DEVICE_COMMON}/${DEVICE_COMMON}-vendor.mk"
+
 # Finish
 write_footers
 
