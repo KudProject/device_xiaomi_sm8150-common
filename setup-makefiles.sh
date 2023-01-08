@@ -35,6 +35,11 @@ echo -e "\nifneq (\$(filter nfc,\$(TARGET_HAS_ADDITIONAL_HARDWARE)),)" >>"${ANDR
 write_makefiles "${MY_DIR}/proprietary-files-nfc.txt" true
 echo -e "endif" >>"${ANDROID_ROOT}/vendor/${VENDOR}/${DEVICE_COMMON}/${DEVICE_COMMON}-vendor.mk"
 
+# Handle common GNSS blobs
+echo -e "\nifneq (\$(filter gnss,\$(TARGET_HAS_ADDITIONAL_HARDWARE)),)" >>"${ANDROID_ROOT}/vendor/${VENDOR}/${DEVICE_COMMON}/${DEVICE_COMMON}-vendor.mk"
+write_makefiles "${MY_DIR}/proprietary-files-gnss.txt" true
+echo -e "endif" >>"${ANDROID_ROOT}/vendor/${VENDOR}/${DEVICE_COMMON}/${DEVICE_COMMON}-vendor.mk"
+
 # Finish
 write_footers
 
