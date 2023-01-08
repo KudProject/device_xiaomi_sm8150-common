@@ -58,16 +58,20 @@ TARGET_USES_GRALLOC1 := true
 TARGET_USES_GRALLOC4 := true
 TARGET_USES_HWC2 := true
 TARGET_USES_ION := true
+ifneq ($(filter fingerprint,$(TARGET_HAS_ADDITIONAL_HARDWARE)),)
 ifneq ($(filter udfps,$(TARGET_HAS_ADDITIONAL_HARDWARE)),)
 TARGET_USES_FOD_ZPOS := true
+endif
 endif
 
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
 
 # Fingerprint
+ifneq ($(filter fingerprint,$(TARGET_HAS_ADDITIONAL_HARDWARE)),)
 ifneq ($(filter udfps,$(TARGET_HAS_ADDITIONAL_HARDWARE)),)
 TARGET_SURFACEFLINGER_UDFPS_LIB := //hardware/xiaomi:libudfps_extension.xiaomi
+endif
 endif
 
 # FM
