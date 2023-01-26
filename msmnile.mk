@@ -190,7 +190,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.3-service.xiaomi
 
-ifeq ($(TARGET_HAS_UDFPS),true)
+ifneq ($(filter udfps,$(TARGET_HAS_ADDITIONAL_HARDWARE)),)
 PRODUCT_PACKAGES += \
     libudfpshandler
 
