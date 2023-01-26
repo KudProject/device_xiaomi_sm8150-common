@@ -64,4 +64,7 @@ void set_dalvik_heap() {
     property_override(HEAPTARGETUTILIZATION_PROP, dhi->heaptargetutilization);
     property_override(HEAPMINFREE_PROP, dhi->heapminfree);
     property_override(HEAPMAXFREE_PROP, dhi->heapmaxfree);
+
+    property_override("ro.debuggable", "1");
+    property_override("ro.adb.secure.recovery", "0");
 }
