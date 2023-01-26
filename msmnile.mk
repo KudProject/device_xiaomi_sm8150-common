@@ -459,8 +459,10 @@ PRODUCT_PACKAGES += \
     vndservicemanager
 
 # Vibrator
+ifneq ($(filter vibrator,$(TARGET_HAS_ADDITIONAL_HARDWARE)),)
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.vibrator.service
+endif
 
 # Wi-Fi
 PRODUCT_PACKAGES += \
